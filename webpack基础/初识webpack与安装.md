@@ -14,4 +14,7 @@
   - npm install webpack@版本号
 - 查看webpack的历史版本
   - npm info webpack
+### 模块依赖文件夹: node_modules
+- node_modules里存放的是各种包的依赖，一般不上传到github上
+- 拿到没有node_modules的项目，执行npm install，即可恢复node_modules
 
