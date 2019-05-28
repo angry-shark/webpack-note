@@ -1,0 +1,19 @@
+**webpack默认只会打包js文件，要打包其他类型的文件，需要loader"辅助"webpack**
+### file-loader可以帮助webpack打包
+- 在webpack.config.js中写入:
+```
+module: { // webpack遇到不认识的文件类型会到这里来找
+    rules: [  // 声明规则
+      {
+        test: /\.(jpg|png|gif)$/, // 文件类型
+        use: {
+          loader: 'file-loader' // 符合上述规则时使用file-loader
+        }
+      }
+    ]
+}
+```
+- file-loader会将符合规则的文件打包到指定目录，并返回文件名
+  - eg. import avator form './src/avator.jpg'，此时avator保存的就是打包后的文件名
+**file-loader实际上是一套文件打包规则**
+  
