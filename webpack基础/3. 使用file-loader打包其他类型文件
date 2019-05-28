@@ -7,13 +7,17 @@ module: { // webpack遇到不认识的文件类型会到这里来找
       {
         test: /\.(jpg|png|gif)$/, // 文件类型
         use: {
-          loader: 'file-loader' // 符合上述规则时使用file-loader
+          loader: 'file-loader', // 符合上述规则时使用file-loader
+          options: {
+            name: '[name].[ext]',   // 使用placeholder语法自定义打包后的名字,https://www.webpackjs.com/loaders/file-loader/ 可查
+            outputPath: 'images/',  // 图片会打包到 打包目录/image 目录下
+          }
         }
       }
     ]
 }
 ```
 - file-loader会将符合规则的文件打包到指定目录，并返回文件名
-  - eg. import avator form './src/avator.jpg'，此时avator保存的就是打包后的文件名
+  - eg. import avator form './src/avator.jpg'，file-loader会将打包后相对于打包入口文件的路径返回给avator
 **file-loader实际上是一套文件打包规则**
   
