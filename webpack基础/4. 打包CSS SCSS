@@ -14,3 +14,20 @@ module: { // webpack遇到不认识的文件类型会到这里来找
 ### css-loader、style-loader所做的事情
 - css-loader可以将css文件和相关依赖整合成一段样式字符串
 - style-loader将这段样式插入到head中，作为行内样式
+
+
+### 打包scss
+- 打包scss需要安装sass-loader node-sass
+在webpack.config.js中写入
+```
+module: { // webpack遇到不认识的文件类型会到这里来找
+  rules: [  // 声明规则
+    {
+      test: /\.scss$/,
+      use: ['style-loader','css-loader','sass-loader']
+    }
+  ]
+},
+```
+
+**注意：use中的loader的执行顺序是从后往前执行的！！！**
