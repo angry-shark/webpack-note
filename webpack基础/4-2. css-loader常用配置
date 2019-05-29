@@ -8,7 +8,8 @@ module: {
         {                       /******从这里开始是css-loader的配置******/
           loader: 'css-loader',
           option: {             /*在scss中@import其他scss文件时，可能不会执行后两个loader*/
-            importLoaders: 2    /*这样写可以保证每一个scss文件都会执行css-loader后面的两个loader*/
+            importLoaders: 2,   /*这样写可以保证每一个scss文件都会执行css-loader后面的两个loader*/
+            modules: true       /*使CSS模块化*/
           }                     /******看到这里******/
         },
         'sass-loader',
@@ -17,4 +18,11 @@ module: {
     }
   ]
 }
+```
+### 模块化CSS的使用方法
+```
+import style from './main.css'
+// 获取类名
+// style.className
+// 需要使用该CSS模块时，引入即可
 ```
