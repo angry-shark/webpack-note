@@ -1,0 +1,20 @@
+```
+module: {
+  rules: [
+    {
+      test: /\.scss$/,
+      use: [
+        'style-loader',
+        {                       /******从这里开始是css-loader的配置******/
+          loader: 'css-loader',
+          option: {             /*在scss中@import其他scss文件时，可能不会执行后两个loader*/
+            importLoaders: 2    /*这样写可以保证每一个scss文件都会执行css-loader后面的两个loader*/
+          }                     /******看到这里******/
+        },
+        'sass-loader',
+        'post-loader'
+      ]
+    }
+  ]
+}
+```
