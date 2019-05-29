@@ -1,0 +1,16 @@
+**CSS的打包同样需要相应的loader**
+### 使用css-loader、style-loader打包CSS
+1. 首先需要安装css-loader style-loader
+```
+module: { // webpack遇到不认识的文件类型会到这里来找
+  rules: [  // 声明规则
+    {
+      test: /\.css$/, // CSS类型的文件
+      use: ['style-loader','css-loader']
+    }
+  ]
+}
+```
+### css-loader、style-loader所做的事情
+- css-loader可以将css文件和相关依赖整合成一段样式字符串
+- style-loader将这段样式插入到head中，作为行内样式
