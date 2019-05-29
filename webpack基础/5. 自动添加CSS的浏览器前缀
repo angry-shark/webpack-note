@@ -1,2 +1,19 @@
 **使用postcss-loader配合autoprefixer插件可以自动添加浏览器前缀**
-###
+1. 首先需要安装post-loader autoprefixer
+2. 在webpack.config.js中写入配置
+```
+module: {
+  rules: [
+    test: /\.(scss)$/,
+    use: ['style-loader','css-loader','sass-loader','postcss-loader']
+  ]
+}
+```
+3. 添加postcss.config.js并写入:
+```
+module.exports = {
+  plugins: [
+    require('autoprefixer')  // 使用autoprefixer插件
+  ]
+}
+```
